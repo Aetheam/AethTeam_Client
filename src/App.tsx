@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import HeaderLogin from './components/headerLogin';
+import HeaderLogin from './components/layout/headerLogin';
 function App() {
   return (
     <div>

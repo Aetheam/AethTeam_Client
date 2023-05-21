@@ -5,5 +5,30 @@
     width: 100%;
     margin-top: 0;
 }
-.header_1_title{
+.header_block_1{
+    margin: 100vh auto;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+}
+.header_text_1{
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    flex: 1;
+}
+.header_1_buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header_1_buttons > a{
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    margin-right: 5vh;
+}
+.header_1_languageSelector{
+    margin-right: 9vh;
 }
