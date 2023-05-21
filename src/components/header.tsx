@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import AethteamLogo from "../assets/AethTeamLogo.png"
 import SearchIcon from '@mui/icons-material/Search';
 import { NavBarButtons } from './items/navBarButtons';
+import { LanguageSelector } from './languageSelector';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function Header() {
   const [authButton, setAuthButton] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   React.useEffect(() => {
@@ -79,7 +80,7 @@ export default function ButtonAppBar() {
           <Typography  sx={{ flexGrow: 1, marginTop: "auto", marginBottom: "auto" }}>
             AethTeam Shop
           </Typography>
-          
+          <LanguageSelector language='English'/>
           {authButton ? (
               <div>
               <IconButton

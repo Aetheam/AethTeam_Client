@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import MuiButton from "@mui/material/Button";
+
 export const NavBarButtons = styled(MuiButton)((props) => ({
     borderRadius: 20,
     label: props.name,
@@ -14,5 +15,6 @@ export const NavBarButtons = styled(MuiButton)((props) => ({
     opacity: "0.90",
     "&:hover": {
         backgroundColor: "#B40A0A",
-    }
-  }));
+        }
+    })
+);

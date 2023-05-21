@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import HeaderLogin from './components/headerLogin';
+import Header from './components/header';
 function App() {
   return (
     <div>
-        <HeaderLogin/>
+        <Header/>
     </div>
   );
 }
