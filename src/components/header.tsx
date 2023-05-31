@@ -10,7 +10,8 @@ import InputBase from '@mui/material/InputBase';
 import AethteamLogo from "../assets/AethTeamLogo.png"
 import SearchIcon from '@mui/icons-material/Search';
 import { NavBarButtons } from './items/navBarButtons';
-import { LanguageSelector } from './languageSelector';
+import LanguageSelector  from './languageSelector';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -39,16 +40,13 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
-  
   '& .MuiInputBase-input': {
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(1)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
-    
     [theme.breakpoints.up('md')]: {
       width: '30ch',
     },
@@ -76,11 +74,19 @@ export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: "#990909"}}>
-        <Box  sx={{ marginRight: "10%", marginLeft: "10%",  display: 'flex', marginTop: "auto", marginBottom: "auto"}}>
+        <Box  sx={{ 
+            marginRight: "10%", 
+            marginLeft: "10%",  
+            display: 'flex', 
+            marginTop: "auto",
+            marginBottom: "auto",
+            height: "3rem"
+            }}
+            >
           <Typography  sx={{ flexGrow: 1, marginTop: "auto", marginBottom: "auto" }}>
             AethTeam Shop
           </Typography>
-          <LanguageSelector language='English'/>
+          <LanguageSelector language='Fr'/>
           {authButton ? (
               <div>
               <IconButton
@@ -117,34 +123,34 @@ export default function Header() {
                 <Button color="inherit" sx={{padding: "1vh"}} >register</Button>
               </>
             )
-
           }
         </Box>
       </AppBar>
-      <AppBar position="static" sx={{backgroundColor: "#312828"}}>
-        <Box sx={{ marginRight: "10%", marginLeft: "10%", display: "flex"}}>
-          <Typography  sx={{ flexGrow: 1, display: "flex" }}>
-          <Box
-            component="img"
-            sx={{
-              height: 50,
-              width: 50,
-            
-            }}
-            alt="The house from the offer."
-            src={AethteamLogo}
-          />
-          <Search sx={{marginTop: "auto", marginBottom: "auto"}}>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+      <AppBar position="static" sx={{backgroundColor: "#312828", height: "5rem"}}>
+        <Box sx={{ marginRight: "10%", marginLeft: "10%", display: "flex",flexGrow: 1}} >
+          <Box  sx={{ flexGrow: 1, display: "flex" }}> 
+            <Box
+              component="img"
+              sx={{
+                height: 50,
+                width: 50,
+                marginTop: "auto",
+                marginBottom: "auto"
+              
+              }}
+              alt="The house from the offer."
+              src={AethteamLogo}
             />
-            <SearchIconWrapper >
-              <SearchIcon />
-              </SearchIconWrapper>
-             
-          </Search>
-          </Typography>
+            <Search sx={{marginTop: "auto", marginBottom: "auto"}}>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+              <SearchIconWrapper >
+                <SearchIcon />
+                </SearchIconWrapper> 
+            </Search>
+          </Box>
           <NavBarButtons> Texture </NavBarButtons>  
           <NavBarButtons> plugins </NavBarButtons>  
           <NavBarButtons> Maps </NavBarButtons>        
@@ -153,8 +159,3 @@ export default function Header() {
     </Box>
   );
 }
-/**
- *  <Button color="inherit" sx={{padding: "1vh"}}>Textures</Button>
-          <Button color="inherit" sx={{padding: "1vh"}}>Plugins</Button>
-          <Button color="inherit" sx={{padding: "1vh"}} >Maps</Button>
- */
