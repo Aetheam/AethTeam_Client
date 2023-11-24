@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: none;
+  box-sizing: border-box;
+}
+header {
+  background-color: rgb(58, 2, 2);
+  height: 80px;
+}
+
+.header_container {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: auto;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo_container {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo_text {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  color: white;
+}
+
+.header_nav_container {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for your navigation buttons */
+.header_nav_container a {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.user_icon {
+  position: relative;
+  cursor: pointer;
+  height: 75%;
+  width: 75%;
+}
+
+.user_menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgb(130, 4, 4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(146, 5, 5);
+  z-index: 1;
+  width: 150px;
+}
+
+.user_menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-bottom: 1px solid rgb(58, 2, 2);
+}
+
+
+.user_menu a:last-child {
+  border-bottom: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .header_container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo_container {
+    margin-bottom: 10px;
+  }
+
+  .header_nav_container {
+    flex-direction: column;
+  }
+
+  .header_nav_container a {
+    margin: 5px 0;
+  }
+
+  .user_icon {
+    height: 50px;
+    width: 100px;
+  }
+
+  .user_menu {
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    position: absolute; /* Changement ici pour utiliser une position absolue */
+  }
+}
+
+.home_banner {
+  background: url("https://www.minestia.fr/static/images/home_banner.jpg") center no-repeat;
+  background-size: cover;
+}
+
+.banner {
+  min-height: 615px;
+  padding-top: 90px;
+  position: relative;
+}
+
+.banner p {
+  width: 370px;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 1.57143em;
+  text-align: center;
+}
+
+.banner h1 {
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.banner h1 span {
+  color: rgb(255, 22, 22);
+}
+
+.marquee {
+  position: absolute;
+  bottom: 68px;
+  left: 50%;
+  margin-left: -257px;
+}

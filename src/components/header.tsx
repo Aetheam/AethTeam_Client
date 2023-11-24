@@ -1,161 +1,52 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { styled, alpha } from '@mui/material/styles';
-import { IconButton, Menu, MenuItem } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
-import InputBase from '@mui/material/InputBase';
-import AethteamLogo from "../assets/AethTeamLogo.png"
-import SearchIcon from '@mui/icons-material/Search';
-import { NavBarButtons } from './items/navBarButtons';
-import LanguageSelector  from './languageSelector';
-
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: 20,
-  backgroundColor: alpha("#990909", 1),
-  '&:hover': {
-    backgroundColor: alpha("#990909", 1),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  height: "50%",
-  display: "flex",
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(1)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '30ch',
-    },
-  },
-}));
+import React, { useState } from "react";
+import logo from "@/assets/images/AethTeamLogo.png";
+import Image from "next/image";
+import NavButtons from "./buttons/nav_buttons";
+import profilIcon from "@/assets/images/profilIcon.png";
 
 export default function Header() {
-  const [authButton, setAuthButton] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  React.useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setAuthButton(true);
-    }
-  }, []);
+    const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
 
+    const handleMouseEnter = () => {
+        console.log("Mouse enter");
+        setIsUserMenuVisible(true);
+    };
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    const handleMouseLeave = () => {
+        console.log(" Mouse leave");
+        setIsUserMenuVisible(false);
+    };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{backgroundColor: "#990909"}}>
-        <Box  sx={{ 
-            marginRight: "10%", 
-            marginLeft: "10%",  
-            display: 'flex', 
-            marginTop: "auto",
-            marginBottom: "auto",
-            height: "3rem"
-            }}
-            >
-          <Typography  sx={{ flexGrow: 1, marginTop: "auto", marginBottom: "auto" }}>
-            AethTeam Shop
-          </Typography>
-          <LanguageSelector language='Fr'/>
-          {authButton ? (
-              <div>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}>
-                <MenuItem onClick={handleClose} sx={{padding: "1vh"}}>Profile</MenuItem>
-                <MenuItem onClick={handleClose} sx={{padding: "1vh"}} >My account</MenuItem>
-              </Menu>
+    return (
+        <header>
+            <div className="header_container">
+                <div className="logo_container">
+                    <Image src={logo} alt="Aeth Team Logo" width={50} height={50} />
+                    <span className="logo_text">AethTeam</span>
+                </div>
+                <div className="header_nav_container">
+                    <NavButtons title="plugins" url="/plugins" />
+                    <NavButtons title="map" url="/map" />
+                    <NavButtons title="textures" url="/textures" />
+                    {/* Add your user icon and menu here */}
+                    <div
+                        className="user_icon"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        {/* Utilisez la balise Image de Next.js pour afficher l'icône de profil */}
+                        <Image src={profilIcon} alt="Profil Icon" width={40} height={40}  />
+                        {isUserMenuVisible ? (
+                            <div className="user_menu">
+                                {/* Add your menu items here */}
+                                <a href="#">Profil</a>
+                                <a href="#">Membres</a>
+                                <a href="#">déconnexion</a>
+                            </div>
+                        ) : null}
+                    </div>
+                </div>
             </div>
-            ) : (
-              <>
-                <Button color="inherit" sx={{padding: "1vh"}}>Login</Button>
-                <Button color="inherit" sx={{padding: "1vh"}} >register</Button>
-              </>
-            )
-          }
-        </Box>
-      </AppBar>
-      <AppBar position="static" sx={{backgroundColor: "#312828", height: "5rem"}}>
-        <Box sx={{ marginRight: "10%", marginLeft: "10%", display: "flex",flexGrow: 1}} >
-          <Box  sx={{ flexGrow: 1, display: "flex" }}> 
-            <Box
-              component="img"
-              sx={{
-                height: 50,
-                width: 50,
-                marginTop: "auto",
-                marginBottom: "auto"
-              
-              }}
-              alt="The house from the offer."
-              src={AethteamLogo}
-            />
-            <Search sx={{marginTop: "auto", marginBottom: "auto"}}>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-              <SearchIconWrapper >
-                <SearchIcon />
-                </SearchIconWrapper> 
-            </Search>
-          </Box>
-          <NavBarButtons> Texture </NavBarButtons>  
-          <NavBarButtons> plugins </NavBarButtons>  
-          <NavBarButtons> Maps </NavBarButtons>        
-        </Box>
-      </AppBar>
-    </Box>
-  );
+        </header>
+    );
 }
