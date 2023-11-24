@@ -13,7 +13,7 @@ Page.getLayout = function getLayout(page: ReactElement) {
       {page}
       <div className={"home_banner"}>
         <section className="banner">
-          <p style={{fontSize: "20px"}}>BIENVENUE SUR L'AETHTEAM SHOP</p>
+          <p style={{fontSize: "20px"}}>BIENVENUE SUR L&aposAETHTEAM SHOP</p>
           <h1>Un des seul <span>Site de présentation et du vente mcpe</span></h1>
           <p>Commencez dès maintenant à regarder sur notre site des multitudes se map, plugin et texture pack pour minecraft bedrock</p>
          
