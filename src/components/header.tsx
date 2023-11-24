@@ -35,7 +35,7 @@ export default function Header() {
                         onMouseLeave={handleMouseLeave}
                     >
                         {/* Utilisez la balise Image de Next.js pour afficher l'icône de profil */}
-                        <Image src={profilIcon} alt="Profil Icon" width={40} height={40}  />
+                        <Image src={profilIcon} alt="Profil Icon" width={40} height={40} />
                         {isUserMenuVisible ? (
                             <div className="user_menu">
                                 {/* Add your menu items here */}
