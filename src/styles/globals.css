@@ -7,13 +7,15 @@ body {
 }
 header {
   background-color: rgb(58, 2, 2);
-  height: 80px;
+  height: 10vh;
+  position: sticky;
 }
 
 .header_container {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: auto;
+  margin-bottom: auto;
   display: flex;
   height: 100%;
   align-items: center;
@@ -32,6 +34,7 @@ header {
   margin-bottom: auto;
   margin-left: 10px;
   color: white;
+  font-size: 2.5rem;
 }
 
 .header_nav_container {
@@ -54,13 +57,13 @@ header {
 }
 
 .user_menu {
+
   position: absolute;
   top: 100%;
   right: 0;
   background-color: rgb(130, 4, 4);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 2px solid rgb(146, 5, 5);
-  z-index: 1;
   width: 150px;
 }
 
@@ -71,7 +74,6 @@ header {
   padding: 10px;
   border-bottom: 1px solid rgb(58, 2, 2);
 }
-
 
 .user_menu a:last-child {
   border-bottom: none;
@@ -109,14 +111,23 @@ header {
 }
 
 .home_banner {
-  background: url("https://www.minestia.fr/static/images/home_banner.jpg") center no-repeat;
-  background-size: cover;
-}
+  background: url("/backround.jpg") center no-repeat;
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
 
-.banner {
-  min-height: 615px;
-  padding-top: 90px;
-  position: relative;
+
+}
+.banner_div{
+  margin-right: auto;
+  margin-left: auto;
+  padding: 4vh;
+  width: auto;
+  margin-top: 20vh;
+  backdrop-filter: blur(7px);
+  border-radius: 20px;
+  background-color: rgba(130, 4, 4, 0.097);
 }
 
 .banner p {
@@ -129,13 +140,13 @@ header {
 
 .banner h1 {
   color: #fff;
-  font-size: 3em;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .banner h1 span {
-  color: rgb(255, 22, 22);
+  color: rgb(40, 1, 1);
+  font-weight: bold;
 }
 
 .marquee {

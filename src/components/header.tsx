@@ -8,12 +8,10 @@ export default function Header() {
     const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
 
     const handleMouseEnter = () => {
-        console.log("Mouse enter");
         setIsUserMenuVisible(true);
     };
 
     const handleMouseLeave = () => {
-        console.log(" Mouse leave");
         setIsUserMenuVisible(false);
     };
 
